@@ -1,3 +1,4 @@
+sudo rm -r /var/lib/k0s/*
 mkdir -p ${HOME}/.k0s
 sudo echo "starting k0s..."
 k0s default-config | tee ${HOME}/.k0s/k0s.yaml
@@ -10,3 +11,4 @@ echo "Kubeconfig is located in ${HOME}/.k0s/kubeconfig"
 LINE='export KUBECONFIG=$KUBECONFIG:${HOME}/.k0s/kubeconfig'
 FILE=${HOME}/.bashrc
 grep -qF "$LINE" "$FILE"  || echo "$LINE" | sudo tee --append "$FILE"
+
